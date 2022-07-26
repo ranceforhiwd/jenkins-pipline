@@ -4,7 +4,7 @@ This project is useful for developers exploring the Dolibarr API in a docker con
 
 The application container serves a webpage form to collect end-user data, then pass data with parameters to Dolibarr.  A return page is provided with information about the processing of data sent via the form.  Javascript is used as a frontend for the application alone with some minor CSS.
 
-<h3>How to use it</he>
+<h3>How to use it</h3>
 
 1.  Download or pull a branch, install on a local computer.
 2.  Download the 'Products' spreadsheet located in the 'data' directory
