@@ -1,0 +1,2 @@
+ volumes: 
+            - '../dolibarr/php:/var/www'
