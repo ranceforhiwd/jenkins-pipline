@@ -11,23 +11,21 @@ include 'functions.php';
 //set globals
 setGlobalVariable();
 
-//exit(print_r($_POST));
-
 //set default values for troubleshooting
-$_POST['firstname'] = 'Rance';
-$_POST['lastname'] = 'Aaron';
-$_POST['email'] = 'ranceaaron941@gmail.com';
+$_POST['firstname'] = 'John';
+$_POST['lastname'] = 'Doe';
+$_POST['email'] = 'jdoe@testing.com';
 $_POST['telephone'] = 2134567890;
 $_POST['checkin'] = '2022-06-01';
 $_POST['checkout'] = '2022-06-07';
-$_POST['villaselect'] = 3;
+$_POST['villaselect'] = 17;
 $_POST['excursions'] = 2;
 $_POST['catering'] = 2;
 $_POST['salon'] = 3;
 
 //trip params
 $qty = 1;
-$product_ids = ["excurs"=>$_POST['excurs'], "villa"=>$_POST['villaselect'], "services"=>$_POST['services']];
+$product_ids = ["excurs"=>$_POST['excurs'], "villa"=>$_POST['villaselect'], "catering"=>$_POST['catering']];
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 $rental_qty = get_number_days($checkin, $checkout);
@@ -36,8 +34,6 @@ $document_params = ['modulepart'=>'proposal'];
 foreach($product_ids as $l=>$p){
     $product_info[$l][] = json_decode(get_product_info($endpoint_base, $p, $api_key));
 }
-
-//exit(print_r(($product_info)));
 
 foreach($product_info as $l=>$j){
     foreach($j as $k){
@@ -107,24 +103,18 @@ $p->write_file($x,array(),"write_file_input.pdf");
 
 $f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
 
-// Copy the file from /user/desktop/geek.txt
-// to user/Downloads/geeksforgeeks.txt'
-// directory
-
 // Store the path of source file
 $source = $f->fullname;
 
 // Store the path of destination file
 $destination = DOL_DOCUMENT_ROOT.'/prospects/'.$f->name;
 
-// Copy the file from /user/desktop/geek.txt
-// to user/Downloads/geeksforgeeks.txt'
-// directory
+
 if( !copy($source, $destination) ) {
 	echo "File can't be copied! \n";
 }
 else {
-    $loc = "https://ofc.quickfixtrips.fun/".$f->name;
+    $loc = "https://localhost/".$f->name;
     $c = array();
     $y = $x->lines;
     
@@ -144,7 +134,6 @@ else {
     echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>';
     echo '';
     echo '<div class="container"';
-            //echo '<p><img style="width:50%;height:50%" src="https://ofc.quickfixtrips.fun/trips/logo-v1.2.1.png" class="img-responsive fit-image" /></p>';
             echo '<br>';
             echo '<h2 style="margin-top:30px">Estimated Trip Cost</h2>';
             echo '<hr>'; 
