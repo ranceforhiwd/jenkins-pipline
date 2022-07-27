@@ -14,8 +14,8 @@ services:
             DOLI_DB_USER: root
             DOLI_DB_PASSWORD: root
             DOLI_DB_NAME: dolibarr
-            DOLI_URL_ROOT: 'http://0.0.0.0'
-            PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
+            DOLI_URL_ROOT: 'http://127.0.0.1'
+            PHP_INI_DATE_TIMEZONE: 'US/Eastern'
         volumes: 
             - '../dolibarr:/var/www/html/data'       
         ports:

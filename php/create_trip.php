@@ -18,10 +18,10 @@ $_POST['email'] = 'jdoe@testing.com';
 $_POST['telephone'] = 2134567890;
 $_POST['checkin'] = '2022-06-01';
 $_POST['checkout'] = '2022-06-07';
-$_POST['villaselect'] = 17;
-$_POST['excursions'] = 2;
-$_POST['catering'] = 2;
-$_POST['salon'] = 3;
+$_POST['villaselect'] = 8;
+$_POST['excursions'] = 0;
+$_POST['catering'] = 0;
+$_POST['salon'] = 0;
 
 //trip params
 $qty = 1;
@@ -34,7 +34,7 @@ $document_params = ['modulepart'=>'proposal'];
 foreach($product_ids as $l=>$p){
     $product_info[$l][] = json_decode(get_product_info($endpoint_base, $p, $api_key));
 }
-
+exit(print_r( $product_info));
 foreach($product_info as $l=>$j){
     foreach($j as $k){
         if($l == 'villa'){
