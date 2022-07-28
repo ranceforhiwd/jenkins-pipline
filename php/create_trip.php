@@ -34,7 +34,7 @@ $document_params = ['modulepart'=>'proposal'];
 foreach($product_ids as $l=>$p){
     $product_info[$l][] = json_decode(get_product_info($endpoint_base, $p, $api_key));
 }
-exit(print_r( $product_info));
+
 foreach($product_info as $l=>$j){
     foreach($j as $k){
         if($l == 'villa'){
