@@ -19,7 +19,7 @@ services:
         volumes: 
             - '../dolibarr:/var/www/html/data'       
         ports:
-            - "80:80"
+            - "8080:80"
         links:
             - mariadb
 
@@ -28,4 +28,4 @@ services:
         volumes: 
             - './:/var/www/html'
         ports:
-            - "8080:80"
+            - "591:80"
