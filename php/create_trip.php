@@ -19,9 +19,9 @@ $_POST['telephone'] = 2134567890;
 $_POST['checkin'] = '2022-06-01';
 $_POST['checkout'] = '2022-06-07';
 $_POST['villaselect'] = 8;
-$_POST['excursions'] = 0;
-$_POST['catering'] = 0;
-$_POST['salon'] = 0;
+$_POST['excursions'] = 9;
+$_POST['catering'] = 11;
+$_POST['salon'] = 13;
 
 //trip params
 $qty = 1;
@@ -94,7 +94,7 @@ foreach($proposal_line_data as $pld){
 }
 
 validate_proposal($endpoint_base, $api_key, $new_proposal_id);
-
+exit('done');
 $x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
 $x->fetch($new_proposal_id);
 
