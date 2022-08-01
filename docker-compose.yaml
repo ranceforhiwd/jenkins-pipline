@@ -19,7 +19,7 @@ services:
         volumes: 
             - '../dolibarr:/var/www/html/data'       
         ports:
-            - "80:80"
+            - "8008:80"
         links:
             - mariadb
 
@@ -29,3 +29,11 @@ services:
             - './:/var/www/html'
         ports:
             - "591:80"
+    matomo:
+        image: matomo
+        volumes: 
+            - '../matomo:/var/www/html/data/matomo'
+        ports:
+            - "80:80"
+        links:
+            - mariadb
