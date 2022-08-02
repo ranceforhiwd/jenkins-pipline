@@ -98,8 +98,8 @@ validate_proposal($endpoint_base, $api_key, $new_proposal_id);
 $x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
 $x->fetch($new_proposal_id);
 
-//$p = new pdf_azur($db);
-//$p->write_file($x,array(),"write_file_input.pdf");
+$p = new pdf_azur($db);
+$p->write_file($x,array(),"write_file_input.pdf");
 
 $f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
 
@@ -116,7 +116,7 @@ if( !copy($source, $destination) ) {
 	echo "File can't be copied! \n";
 }
 else {
-    $loc = "http://localhost/".$f->name;
+    $loc = "http://localhost:8008/".$f->name;
     $c = array();
     $y = $x->lines;
     

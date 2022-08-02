@@ -10,7 +10,7 @@ The application container serves a webpage form to collect end-user data, then p
 2.  Download the 'Products' spreadsheet located in the 'data' directory
 3.  Navigate to the working directory where the files are located
 4.  Run this:  docker compose -f docker-compose.yaml up
-5.  Open a browser to url:  http://localhost
+5.  Open a browser to url:  http://localhost:8008
 
 <h3>Configuration</h3>
 Dolibarr default account:
@@ -30,6 +30,6 @@ Final setup is to navigate to the Import Module and import products from the pre
 
 <h3>Testing</h3>
 
-Open a browser tab to:  http://localhost:8080
+Open a browser tab to:  http://localhost:591
 
 A form should display. A result screen should display upon submission of the form.
