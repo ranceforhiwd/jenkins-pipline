@@ -1,8 +1,8 @@
 <?php
 function setGlobalVariable()
 {
-    $GLOBALS['endpoint_base'] = "http://localhost:8008/api/index.php/";
-    $GLOBALS['api_key'] = 'Vy07wN7B5tKRujA7gP0BKWFl0fl79e2b';
+    $GLOBALS['endpoint_base'] = "http://localhost/api/index.php/";
+    $GLOBALS['api_key'] = 'BL78hJp4vu6wZ6b0Ju91JjR0IEbH6ilU';
     $GLOBALS['date_today'] = date("Y-m-d");
 }
 
@@ -100,9 +100,10 @@ function get_product_cat($ep, $y, $c)
 }
 
 
-function update_proposal($ep, $x, $y, $z){    
+function update_proposal($ep, $x, $y, $z){ 
+    $y = '{"label":"ATV","desc":"ATV off road fun!","subprice":"0.00000000","total_ttc":null,"qty":1,"fk_product_type":1,"multicurrency_total_ttc":0}';   
     $endpoint = $ep."proposals/$x/lines";
-    callAPI('POST', $z, $endpoint, json_encode($y));
+    callAPI('POST', $z, $endpoint, $y);
 }
 
 function get_products(){

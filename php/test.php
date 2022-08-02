@@ -3,7 +3,7 @@
  * @author Rance Aaron
  * 
  */
-include('../../master.inc.php');
+include('../master.inc.php');
 include_once(DOL_DOCUMENT_ROOT."/core/modules/propale/doc/pdf_azur.modules.php");
 include_once(DOL_DOCUMENT_ROOT."/comm/propal/class/propal.class.php");
 include 'functions.php';
@@ -22,6 +22,10 @@ $_POST['villaselect'] = 8;
 $_POST['excursions'] = 9;
 $_POST['catering'] = 11;
 $_POST['salon'] = 13;
+$_POST['address'] = '123 Main St';
+$_POST['city'] = 'San Diego';
+$_POST['zip'] = '92104';
+
 
 //trip params
 $qty = 1;
@@ -31,7 +35,7 @@ $checkout = $_POST['checkout'];
 $rental_qty = get_number_days($checkin, $checkout);
 $document_params = ['modulepart'=>'proposal'];
 
-/*foreach($product_ids as $l=>$p){
+foreach($product_ids as $l=>$p){
     $product_info[$l][] = json_decode(get_product_info($endpoint_base, $p, $api_key));
 }
 
@@ -87,36 +91,38 @@ $proposal_params = [
 ];
 
 $new_proposal_id = create_proposal($endpoint_base, $api_key, $proposal_params);
+sleep(5);
 
 //add products & services to proposal
 foreach($proposal_line_data as $pld){
-    update_proposal($endpoint_base, $new_proposal_id, $pld, $api_key);
+    //exit(json_encode($pld));
+    update_proposal($endpoint_base, $new_proposal_id, json_encode($pld), $api_key);
 }
 
 validate_proposal($endpoint_base, $api_key, $new_proposal_id);
 
-$x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
-$x->fetch($new_proposal_id);
+//$x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
+//$x->fetch($new_proposal_id);
 
-$p = new pdf_azur($db);
-$p->write_file($x,array(),"write_file_input.pdf");
+//$p = new pdf_azur($db);
+//$p->write_file($x,array(),"write_file_input.pdf");
 
-$f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
+//$f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
 
 // Store the path of source file
-$source = $f->fullname;
+//$source = $f->fullname;
 
 // Store the path of destination file
-$destination = DOL_DOCUMENT_ROOT.'/prospects/'.$f->name;
+//$destination = '../../prospects/'.$f->name;
 
 
-if( !copy($source, $destination) ) {
-    echo $source;
+if( copy($source, $destination) ) {
+    echo $source.'-';
     echo $destination;
 	echo "File can't be copied! \n";
 }
 else {
-    $loc = "http://localhost:8008/".$f->name;
+    $loc = "http://localhost/".$f->name;
     $c = array();
     $y = $x->lines;
     
@@ -150,4 +156,3 @@ else {
     echo '</div>'; 
     echo '';
 }
-*/
