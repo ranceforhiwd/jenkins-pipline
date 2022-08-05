@@ -95,31 +95,28 @@ sleep(5);
 
 //add products & services to proposal
 foreach($proposal_line_data as $pld){
-    //exit(json_encode($pld));
-    update_proposal($endpoint_base, $new_proposal_id, json_encode($pld), $api_key);
+    update_proposal($endpoint_base, $new_proposal_id, $pld, $api_key);
 }
 
 validate_proposal($endpoint_base, $api_key, $new_proposal_id);
 
-//$x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
-//$x->fetch($new_proposal_id);
+$x = new Propal($db,  (int)$new_prospect_id, (int)$new_proposal_id);
+$x->fetch($new_proposal_id);
 
-//$p = new pdf_azur($db);
-//$p->write_file($x,array(),"write_file_input.pdf");
+$p = new pdf_azur($db);
+$p->write_file($x,array(),"write_file_input.pdf");
 
-//$f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
+$f = array_shift(json_decode(get_proposal_file($endpoint_base, $new_proposal_id,  $api_key)));
 
 // Store the path of source file
-//$source = $f->fullname;
+$source = $f->fullname;
 
 // Store the path of destination file
-//$destination = '../../prospects/'.$f->name;
+$destination = '../../'.$f->name;
 
 
-if( copy($source, $destination) ) {
-    echo $source.'-';
-    echo $destination;
-	echo "File can't be copied! \n";
+if( !copy($source, $destination) ) {
+    echo "File can't be copied! \n";
 }
 else {
     $loc = "http://localhost/".$f->name;
