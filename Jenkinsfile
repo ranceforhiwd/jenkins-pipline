@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                sh: 'git ftp push'
             }
         }
         stage('Test') {
