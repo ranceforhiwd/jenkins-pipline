@@ -14,7 +14,7 @@ setGlobalVariable();
 
 //set default values for troubleshooting
 $_POST['firstname'] = 'John';
-$_POST['lastname'] = 'Doe';
+$_POST['lastname'] = 'Doe2';
 $_POST['email'] = 'jdoe@testing.com';
 $_POST['telephone'] = 2134567890;
 $_POST['checkin'] = '2022-06-01';
