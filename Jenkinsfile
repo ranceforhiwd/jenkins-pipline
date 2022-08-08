@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying. revised....'
+                echo 'Deployment completed by Rance....'
             }
         }
     }
