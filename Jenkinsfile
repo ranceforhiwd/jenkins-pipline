@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'git-ftp push -u ${FTP_USERNAME} -p ${FTP_PASSWORD} 160.153.55.233'
+               echo 'Build step sets up deployment env.'
             }
         }
         stage('Test') {
@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'git-ftp push -u ${FTP_USERNAME} -p ${FTP_PASSWORD} 160.153.55.233'
                 echo 'Deployment completed by Rance Aaron'
             }
         }
