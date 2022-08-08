@@ -5,7 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'ftp open 160.153.55.233'
-                sh 'rance@ofc.quickfixtrips.fun'
             }
         }
         stage('Test') {
