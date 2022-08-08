@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ftp open 160.153.55.233'
+                sh 'git ftp init'
             }
         }
         stage('Test') {
