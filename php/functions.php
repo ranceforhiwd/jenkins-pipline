@@ -2,7 +2,7 @@
 function setGlobalVariable()
 {
     $GLOBALS['endpoint_base'] = "https://ofc.quickfixtrips.fun/api/index.php/";
-    $GLOBALS['api_key'] = 'A2aQNKKo68SIG666dvVMgyG95zmii27p';
+    $GLOBALS['api_key'] = '9ZsSplB25p26JP8sYcvcRy6wY6w8HO8X';
     $GLOBALS['date_today'] = date("Y-m-d");
 }
 
