@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Rance Aaron
- * 
+ * Aug 2022
  */
 include('../../master.inc.php');
 include_once(DOL_DOCUMENT_ROOT."/core/modules/propale/doc/pdf_azur.modules.php");
