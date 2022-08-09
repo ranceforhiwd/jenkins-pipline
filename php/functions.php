@@ -1,12 +1,12 @@
 <?php
 function setGlobalVariable()
 {
-    $GLOBALS['endpoint_base'] = "https://ofc.quickfixtrips.fun/api/index.php/";
-    $GLOBALS['api_key'] = '9ZsSplB25p26JP8sYcvcRy6wY6w8HO8X';
+    $GLOBALS['endpoint_base'] = '${END_POINT}';
+    $GLOBALS['api_key'] = '${DOL_API_KEY}';
     $GLOBALS['date_today'] = date("Y-m-d");
 }
 
-// Example of function to call a REST API
+// function to call a REST API
 function callAPI($method, $apikey, $url, $data = false)
 {
     $curl = curl_init();
