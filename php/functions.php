@@ -4,8 +4,8 @@ function setGlobalVariable()
     $GLOBALS['endpoint_base'] = 'http://ofc.quickfixtrips.fun/api/index.php/';
     //$GLOBALS['endpoint_base'] = 'http://127.0.0.1/api/index.php/';  
     $GLOBALS['date_today'] = date("Y-m-d");
-    //$GLOBALS['api_key'] = '9ZsSplB25p26JP8sYcvcRy6wY6w8HO8X';  
-    $GLOBALS['api_key'] = ${APIKEY};  
+    $GLOBALS['api_key'] = '9ZsSplB25p26JP8sYcvcRy6wY6w8HO8X';  
+    //$GLOBALS['api_key'] = ${APIKEY};  
 }
 
 // function to call a REST API
