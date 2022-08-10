@@ -1,9 +1,10 @@
 <?php
 function setGlobalVariable()
 {
-    $GLOBALS['endpoint_base'] = '${END_POINT}';
-    $GLOBALS['api_key'] = '${DOL_API_KEY}';
+    $GLOBALS['endpoint_base'] = 'http://ofc.quickfixtrips.fun/api/index.php/';
+    //$GLOBALS['endpoint_base'] = 'http://127.0.0.1/api/index.php/';  
     $GLOBALS['date_today'] = date("Y-m-d");
+    $GLOBALS['api_key'] = '9ZsSplB25p26JP8sYcvcRy6wY6w8HO8X';    
 }
 
 // function to call a REST API
@@ -23,8 +24,7 @@ function callAPI($method, $apikey, $url, $data = false)
 
             break;
         case "PUT":
-
-	    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
+	        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
             $httpheader[] = "Content-Type:application/json";
 
             if ($data)
@@ -49,6 +49,12 @@ function callAPI($method, $apikey, $url, $data = false)
     curl_close($curl);
 
     return $result;
+}
+
+function get_token($ep, $u, $p)
+{
+    $endpoint = "login?login=$u&password=$p";      
+    return callAPI('GET', 'http://127.0.0.1/api/index.php/'.$endpoint);
 }
 
 function create_prospect($ep, $z, $y)
